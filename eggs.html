@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>数蛋</title>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script>
+$(function(){
+	
+	//预设三个变量，分别是鸡蛋，鸭蛋和鹅蛋的数量
+	var x,y,z;
+	
+	//定义一个数组，存储正确答案
+	var eggs = [];
+	
+	for(var x = 0;x < 100;x++){				//鸡蛋的数量可能是1-100
+		for(var y = 0;y < 100-x;y++){		//鸭蛋的数量是100-x
+			z = 100-x-y;					//鹅蛋的数量是100-x-y
+			if(0.3*x+7*y+8*z == 100){		//如果满足题目的条件，则将三个变量代表的数字存储在数组中
+				eggs.push(x,y,z);
+			}
+		}
+	}
+	
+	//分别赋值
+	$(".x").html(eggs[0]);
+	$(".y").html(eggs[1]);
+	$(".z").html(eggs[2]);
+})
+</script>
+</head>
+<body>
+	<p>题目：鸡蛋3毛，鸭蛋7块，鹅蛋8块，100块买100只蛋，问：各买多少只蛋？</p>
+	<p>买鸡蛋：<span class="x"></span>只</p>
+	<p>买鸭蛋：<span class="y"></span>只</p>
+	<p>买鹅蛋：<span class="z"></span>只</p>
+</body>
+</html>
